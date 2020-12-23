@@ -36,10 +36,22 @@ The test class `EventHubTest` needs the following Azure cloud resources, which a
  - Event Hub Namespace
  - Event Hub Instance
  - Storage Account
- - empty App Configuration 
+ - empty App Configuration
 
-The setup process is described in this article: 
+The setup process is described in this article:
 https://docs.microsoft.com/de-de/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
 
 Depending on the properties of the cloud resources, the entries in application.properties and bootstrap.properties need
 to be updated. The files commited here do NOT contain the original connection strings.
+
+## Analyze dependency changes
+
+The complete list of all azure dependencies which get into the service can be displayed using the following command:
+
+```
+mvn dependency:list | grep " -- " | cut -c 11- | sort -u | grep azure
+```
+
+Changing the dependency version of `spring-cloud-azure-eventhubs-stream-binder` from 1.2.7 to 1.2.8 results in several
+changed transitive dependencies as seen in the files [dependencies.ok](dependencies.ok)
+and [dependencies.conflict](dependencies.conflict) 

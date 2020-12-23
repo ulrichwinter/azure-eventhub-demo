@@ -31,7 +31,8 @@ Caused by: java.lang.NoSuchMethodError: 'void com.azure.core.util.logging.Client
  
  
  ## Needed cloud resources to get a working setup.
- The test class `EventHubTest` needs the following Azure cloud resources:
+
+The test class `EventHubTest` needs the following Azure cloud resources, which are available within a free subscription:
  - Event Hub Namespace
  - Event Hub Instance
  - Storage Account
@@ -40,5 +41,5 @@ Caused by: java.lang.NoSuchMethodError: 'void com.azure.core.util.logging.Client
 The setup process is described in this article: 
 https://docs.microsoft.com/de-de/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
 
-Depending on the properties of the cloud resources, the entries in application.properties and bootstrap.properties need to be updated. 
-The files commited here do NOT contain the original connection streings.
+Depending on the properties of the cloud resources, the entries in application.properties and bootstrap.properties need
+to be updated. The files commited here do NOT contain the original connection strings.
